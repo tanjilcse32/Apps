@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="AngularApp">
+<head>
+    <title>Angular JS Using WCF Service</title>
+    
+    <script src="Scripts/jquery-1.11.0.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/Controller/App.js"></script>
+    <script src="Scripts/Controller/Controller.js"></script>
+    <script src="Scripts/Controller/Service.js"></script>
+    <link href="Css/bootstrap.css" rel="stylesheet" />
+    <link href="Css/ionic.css" rel="stylesheet" />
+    <script src="Scripts/ionic.bundle.js"></script>
+    <script type="text/javascript">
+        //function Cancel() {
+        //}
+    </script>
+    <script src="Scripts/GridPaging/GridPagingController.js"></script>
+</head>
+
+<body ng-controller="AngularController">
+
+    <!-- Angular JS start -->
+
+    <!-- Angular JS End-->
+
+
+    <div id="dvLoading"></div>
+    <div class="page-header">
+        <h1>Angular JS Using WCF Service</h1>
+    </div>
+
+    <div id='divProduct' class="col-sm-12">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id='txtProductName' ng-model="formdata.ProductName" placeholder='Enter Your Product Name' class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" id='txtProductDescription' ng-model="formdata.ProductDescription" placeholder='Enter Your Product Description' name="description" class="form-control" />
+        </div>
+        <div class="form-group">
+            <div class="col-xs-9 col-xs-offset-3">
+                <button id="btnSubmit" type="submit" class="btn btn-primary" ng-click="add()">Submit</button>
+                <button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+                <a href="View/GridPaging/GridPaging.html" class="btn btn-primary">Next Page</a>
+                <a href="View/TabsExample/TabsExample.html" class="btn btn-success">Tabs Show</a>
+                <a href="View/GridPagingMain/GridPagingMain.html" class="btn btn-default">Grid paging</a>
+                <a href="View/GoogleMap/GoogleMap.html" class="btn btn-info">Google Map</a>
+                <a href="View/EmployeeList/EmployeeList.html" class="button btn-info">EmployeeList</a>
+            </div>
+        </div>
+    </div>
+
+
+        <div id='bindProduct' class="col-sm-12">
+            <br />
+            <table class='table table-bordered'>
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                    <tr ng-repeat="Product in Products">
+                        <td>{{ Product.ProductName}}</td>
+                        <td>{{ Product.ProductDescription}}</td>
+                        <td>
+                            <span>
+                                <a href="javascript:void(0);" ng-click="edit(Product);">
+                                    <img width="16" height="16" alt="Close" src="Image/Edit.jpg" />
+                                </a>
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                <a href="javascript:void(0);" ng-click="delete(Product.Id);">
+                                    <img width="16" height="16" alt="Close" src="Image/close.png" />
+                                </a>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</body>
+</html>
+
